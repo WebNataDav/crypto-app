@@ -7,31 +7,26 @@ const [results, setResults] = useState([]);
 
 const handleChange = (e) => {
   setQuery(e.target.value);
-
 }
 
 const handleSubmit = (e) => {
-e.preventDefault();
-const filteredData = data.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
-setResults(filteredData);
-console.log('filteredData', filteredData)
+  e.preventDefault();
+  const filteredRes = data.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+  setResults(filteredRes);
 }
 
-
+useEffect(() => {
+if(query.trim() === '') {
+  setResults([])
+}
+}, [query])
 
 return (
   <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto">
     <h1>Search Form</h1>
-    <input onChange={handleChange} value={query} name="search" type="text"/>
-    <button type="submit">Start search</button>
-    <div>
-      {!results && (
-        <h3>Loading....</h3>
-      )}
-      {results && (
-        results.map((item, index) => <p key={index}>{item}</p>)
-      )}
-    </div>
+    <input onChange={handleChange} id="search" value={query} name="search"/>
+    <button type="submit">Search</button>
+    <>{results}</>
   </form>
 )
 };

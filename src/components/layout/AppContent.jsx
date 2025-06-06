@@ -8,7 +8,8 @@ const contentStyle = {
   padding: '1rem',
 };
 
-export default AppContent = () => {
+export default function AppContent() {
+  
   return (
 <Layout.Content style={contentStyle}>Content</Layout.Content>
   )

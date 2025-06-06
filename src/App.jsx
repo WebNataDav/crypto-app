@@ -1,19 +1,16 @@
 //import Form from './Form';
-import { Layout } from 'antd';
-import AppHeader from './components/layout/AppHeader';
-import AppSider from './components/layout/AppSider';
-import AppContent from './components/layout/AppSider';
+//import InputLiveText from './Form/InputLiveText';
+import AppLayout from './components/layout/AppLayout';
+import {CryptoContextProvider} from './context/crypto-context';
 
 export default function App() {
-  // const mockData = ['apple', 'pear', 'watermelon', 'melon'];
+  //const mockData = ['apple', 'pear', 'watermelon', 'melon'];
+  {/* <Form data={mockData}/> */}
+  // <InputLiveText/>
 
   return (
-    <Layout>
-      <AppHeader/>
-      <Layout>
-        <AppSider/>
-        <AppContent/>
-      </Layout>
-    </Layout>
+    <CryptoContextProvider>
+     <AppLayout/>
+    </CryptoContextProvider>
   )
 }
